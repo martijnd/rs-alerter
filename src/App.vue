@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, Ref, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 
 function checkNotifyPermission() {
   if (!("Notification" in window)) {
@@ -57,6 +57,7 @@ function checkTimes() {
 
 onMounted(() => {
   setInterval(checkTimes, 60 * 1000);
+  checkNotifyPermission();
   checkTimes();
 });
 </script>
